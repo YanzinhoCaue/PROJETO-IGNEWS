@@ -7,12 +7,6 @@ ig.news é uma aplicação full-stack de uma plataforma de notícias por assinat
 
 ---
 
-### **🎬 Demonstração**
-
-![redesocial](https://github.com/YanzinhoCaue/PROJETO-IGNEWS/assets/127339610/c55b41c7-f890-4b43-a32f-19d5056b43de)
-
----
-
 ### **🏛️ Arquitetura e Features em Destaque**
 
 A aplicação foi desenvolvida utilizando uma arquitetura Jamstack moderna e escalável:
