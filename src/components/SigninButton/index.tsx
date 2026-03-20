@@ -6,16 +6,15 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 
 export function SignInButton() {
   const { data: session }= useSession();
-  console.log(session);
   return session ? (
     <button 
       type="button"
       className={styles.signInButton}
       onClick={() => signOut()}
     >
-      <FaGithub color="#04D361"/>
+      <FaGithub />
       {session.user?.name}
-      <FiX color="#737380" className={styles.closeIcon}/>
+      <FiX className={styles.closeIcon}/>
     </button>
   ) : (
     <button 
@@ -23,7 +22,7 @@ export function SignInButton() {
       className={styles.signInButton}
       onClick={() => signIn('github')}
     >
-      <FaGithub color="#EBA417"/>
+      <FaGithub />
       Sign in with Github
     </button>
   );

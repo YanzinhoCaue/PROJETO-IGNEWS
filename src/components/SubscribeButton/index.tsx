@@ -2,7 +2,6 @@ import { signIn, useSession } from "next-auth/react";
 import { api } from "../../services/api";
 import { getStripeJs } from "../../services/stripe-js";
 import styles from "./styles.module.scss";
-import { stripe } from "../../services/stripe"
 
 interface subscribeButton {
   priceId: string;
@@ -25,9 +24,14 @@ export function SubscribeButton({ priceId }: subscribeButton) {
 
       const stripe = await getStripeJs();
 
+      if (!stripe) {
+        throw new Error("Nao foi possivel inicializar o Stripe.");
+      }
+
       await stripe.redirectToCheckout({ sessionId });
     } catch (error) {
-      alert(error.message);
+      const message = error instanceof Error ? error.message : "Erro ao iniciar checkout.";
+      alert(message);
     }
   }
   return (

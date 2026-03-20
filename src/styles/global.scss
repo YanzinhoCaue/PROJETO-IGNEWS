@@ -7,15 +7,18 @@
 :root {
   --white: #FFFFFF;
 
-  --gray-100: #E1E1E6;
-  --gray-300: #A8A8B3;
-  --gray-700: #323238;
-  --gray-800: #29292E;
-  --gray-850: #1F2729;
-  --gray-900: #121214;
+  --gray-100: #f5f5f5;
+  --gray-300: #a7a7ad;
+  --gray-700: #2a2a2f;
+  --gray-800: #17171b;
+  --gray-850: #111116;
+  --gray-900: #08080c;
 
-  --cyan-500: #61DAFB;
-  --yellow-500: #EBA417;
+  --cyan-500: #ff66c4;
+  --yellow-500: #ffd000;
+  --yellow-400: #ffe569;
+  --pink-500: #ff2ea6;
+  --pink-400: #ff8fd2;
 }
 
 @media(max-width: 1080px) {
@@ -33,10 +36,52 @@
 body {
   background-color: var(--gray-900);
   color: #FFFFFF;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
 }
 
 body, input, textarea, select, button {
-  font: 400 1rem "Roboto", sans-serif;
+  font: 500 1rem "Rajdhani", sans-serif;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 208, 0, 0.14), transparent 35%),
+    radial-gradient(circle at 85% 75%, rgba(255, 46, 166, 0.2), transparent 32%),
+    linear-gradient(120deg, #050507 0%, #101014 55%, #070709 100%);
+  animation: bgDrift 11s ease-in-out infinite alternate;
+}
+
+body::after {
+  background-image: linear-gradient(
+    transparent 0%,
+    transparent 48%,
+    rgba(255, 208, 0, 0.04) 49%,
+    transparent 51%,
+    transparent 100%
+  );
+  background-size: 100% 4px;
+  opacity: 0.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.04em;
 }
 
 button {
@@ -46,4 +91,13 @@ button {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@keyframes bgDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-1.2%, 1.4%, 0) scale(1.03);
+  }
 }
